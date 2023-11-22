@@ -1,0 +1,33 @@
+.comic__page__main__canvas {
+  width: 96%;
+  max-width: 480px;
+}
+
+.comic__page__canvas {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.comic__page__canvas::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* This value is the aspect ratio (height/width) as a percentage */
+}
+
+.comic__page__canvas__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+}
+.comic__page__canvas__content > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=comicPage.css.map */

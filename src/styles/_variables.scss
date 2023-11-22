@@ -1,0 +1,18 @@
+$borderRadius: 8px;
+$paperShadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+$modalShadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+$primary_clr: #3a4c7f;
+$primary_text_clr: #333333;
+$bg_grey: #f0f0f0;
+$create_btn: #ffd700;
+$nav_btns: #ffd700;
+$slide_bg: #fff;
+
+@mixin button($pd: 5px 15px, $br: $borderRadius) {
+  border: none;
+  padding: $pd;
+  border-radius: $br;
+  cursor: pointer;
+}

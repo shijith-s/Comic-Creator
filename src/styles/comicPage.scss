@@ -1,0 +1,35 @@
+@import "./variables";
+
+.comic__page__main__canvas {
+  width: 96%;
+  max-width: 480px;
+}
+
+.comic__page__canvas {
+  position: relative;
+  width: 100%;
+  background-color: $slide_bg;
+  overflow: hidden;
+  border-radius: $borderRadius;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: $paperShadow;
+}
+
+.comic__page__canvas::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* This value is the aspect ratio (height/width) as a percentage */
+}
+
+.comic__page__canvas__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

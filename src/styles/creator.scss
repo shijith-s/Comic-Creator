@@ -1,0 +1,82 @@
+@import "./variables";
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $primary_clr;
+  // color: $primary_text_clr;
+  color: white;
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 50px;
+}
+
+.navbar__content__right {
+  display: flex;
+  gap: 20px;
+}
+
+// .comic__page__list {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 30px;
+// }
+
+.comic__creator {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: $bg_grey;
+}
+
+.comic__creator_main_content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.comic__creator__generate__btn {
+  @include button(10px 30px);
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background-color: $create_btn;
+  box-shadow: $boxShadow;
+  color: $primary_text_clr;
+  &:hover {
+    background-color: $primary_text_clr;
+    color: $create_btn;
+  }
+}
+
+.comic__creator__nav__btns {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  & > button {
+    // @include button(10px 50%);
+    border: none;
+    border-radius: 50%;
+    background-color: $nav_btns;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
