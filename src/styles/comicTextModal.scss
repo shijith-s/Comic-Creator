@@ -4,7 +4,8 @@
   background-color: $primary_clr;
   color: white;
   width: 400px;
-  height: 300px;
+  min-height: 300px;
+  max-width: 90vw;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,6 +18,7 @@
   align-items: stretch;
   gap: 20px;
   box-shadow: $modalShadow;
+  z-index: 100;
 }
 
 .comic__text__modal_close_btn {

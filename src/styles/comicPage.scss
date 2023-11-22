@@ -1,17 +1,12 @@
 @import "./variables";
 
-.comic__page__main__canvas {
+.comic__page__canvas {
   width: 96%;
   max-width: 480px;
-}
-
-.comic__page__canvas {
   position: relative;
-  width: 100%;
   background-color: $slide_bg;
   overflow: hidden;
   border-radius: $borderRadius;
-  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   box-shadow: $paperShadow;
 }
 

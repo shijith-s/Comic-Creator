@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/comicPage.css";
 import Loader from "./Loader";
 
-function ComicPage({ page }) {
+function ComicPage({ page, pageId, isMainView = false }) {
   return (
     <div className="comic__page__canvas">
       {page?.is_loading ? (

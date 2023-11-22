@@ -1,11 +1,7 @@
-.comic__page__main__canvas {
+.comic__page__canvas {
   width: 96%;
   max-width: 480px;
-}
-
-.comic__page__canvas {
   position: relative;
-  width: 100%;
   background-color: #fff;
   overflow: hidden;
   border-radius: 8px;

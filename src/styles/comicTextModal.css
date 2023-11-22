@@ -2,7 +2,8 @@
   background-color: #3a4c7f;
   color: white;
   width: 400px;
-  height: 300px;
+  min-height: 300px;
+  max-width: 90vw;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -15,6 +16,7 @@
   align-items: stretch;
   gap: 20px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  z-index: 100;
 }
 
 .comic__text__modal_close_btn {

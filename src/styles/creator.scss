@@ -1,5 +1,7 @@
 @import "./variables";
 
+$navbar_height: 50px;
+
 .navbar {
   position: sticky;
   top: 0;
@@ -15,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  height: 50px;
+  height: $navbar_height;
 }
 
 .navbar__content__right {
@@ -37,24 +39,45 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: stretch;
   background-color: $bg_grey;
 }
 
 .comic__creator_main_content {
-  height: 100vh;
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: stretch;
+  align-items: stretch;
 }
 
+.comic__page__sideview {
+  height: calc(100vh - $navbar_height);
+  width: 200px;
+  overflow: auto;
+  border-right: 1px solid #ddd;
+}
 
+.comic__page__main__canvas {
+  // width: 96%;
+  width: 500px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.comic__page__main__canvas__id {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
 .comic__creator__generate__btn {
-  @include button(10px 30px);
+  @include button(10px, 50%);
   position: absolute;
   bottom: 30px;
   right: 40px;
   background-color: $create_btn;
-  box-shadow: $boxShadow;
+  box-shadow: $modalShadow;
   color: $primary_text_clr;
   &:hover {
     background-color: $primary_text_clr;
@@ -78,5 +101,14 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .comic__creator__nav__btns {
+    flex-direction: row;
+    bottom: 30px;
+    right: 50%;
+    transform: translateX(50%);
   }
 }

@@ -4,8 +4,10 @@ import ComicPage from "../components/ComicPage";
 import "../styles/creator.css";
 import ComixTextModal from "../components/ComixTextModal";
 import { generateImage } from "../services/comics";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+// import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import EditIcon from "@mui/icons-material/Edit";
+import ComicList from "../components/ComicList";
 
 const INITIAL_SIZE = 10;
 const BASE_STRUCTURE = {
@@ -93,6 +95,11 @@ function Creator() {
     setCurrPageId((page) => page - 1);
   };
 
+  const switchPage = (pageId) => {
+    if (pageId < 0 || pageId >= pages.length) return;
+    setCurrPageId(pageId);
+  };
+
   const openModal = () => {
     // opens the modal to edit/create the text for current page
     setIsModalOpen(true);
@@ -105,18 +112,30 @@ function Creator() {
 
   return (
     <div className="comic__creator">
-      <div>
-        <NavBar />
-      </div>
+      <NavBar />
       <div className="comic__creator_main_content">
+        <div className="comic__page__sideview">
+          <ComicList
+            pages={pages}
+            currPageId={currPageId}
+            switchPage={switchPage}
+          />
+        </div>
         <div className="comic__page__main__canvas">
-          <ComicPage page={pages[currPageId]} />
+          <div className="comic__page__main__canvas__id">
+            Page {currPageId + 1}
+          </div>
+          <ComicPage
+            page={pages[currPageId]}
+            pageId={currPageId}
+            isMainView={true}
+          />
         </div>
       </div>
       <button className="comic__creator__generate__btn" onClick={openModal}>
-        Create
+        <EditIcon />
       </button>
-      {/* <ComicList pages={pages} /> */}
+
       {isModalOpen && (
         <ComixTextModal
           currPageId={currPageId}
@@ -124,7 +143,7 @@ function Creator() {
           generate={generate}
         />
       )}
-      <div className="comic__creator__nav__btns">
+      {/* <div className="comic__creator__nav__btns">
         <button onClick={goToPrevPage} disabled={currPageId === 0}>
           <ArrowDropUpIcon />
         </button>
@@ -134,7 +153,7 @@ function Creator() {
         >
           <ArrowDropDownIcon />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
