@@ -10,6 +10,10 @@ $create_btn: #ffd700;
 $nav_btns: #ffd700;
 $slide_bg: #fff;
 
+$navbar_height: 50px;
+$bottom_scroller_height: 100px;
+$side_scroller_width: 200px;
+
 @mixin button($pd: 5px 15px, $br: $borderRadius) {
   border: none;
   padding: $pd;

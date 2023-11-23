@@ -130,11 +130,11 @@ function Creator() {
             pageId={currPageId}
             isMainView={true}
           />
+          <button className="comic__creator__generate__btn" onClick={openModal}>
+            <EditIcon />
+          </button>
         </div>
       </div>
-      <button className="comic__creator__generate__btn" onClick={openModal}>
-        <EditIcon />
-      </button>
 
       {isModalOpen && (
         <ComixTextModal

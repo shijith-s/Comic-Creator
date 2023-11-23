@@ -41,17 +41,18 @@
 .comic__page__sideview {
   height: calc(100vh - 50px);
   width: 200px;
-  overflow: auto;
+  overflow-y: auto;
   border-right: 1px solid #ddd;
+  padding: 10px;
 }
 
 .comic__page__main__canvas {
-  width: 500px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 10px;
 }
 
 .comic__page__main__canvas__id {
@@ -101,5 +102,19 @@
     bottom: 30px;
     right: 50%;
     transform: translateX(50%);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .comic__creator_main_content {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .comic__page__sideview {
+    height: 100px;
+    flex-shrink: 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: none;
   }
 }/*# sourceMappingURL=creator.css.map */

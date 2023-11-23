@@ -28,3 +28,12 @@
     object-fit: cover;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .comic__page__canvas {
+    width: min(
+      98%,
+      calc(100vh - $navbar_height - $bottom_scroller_height - 50px)
+    );
+  }
+}

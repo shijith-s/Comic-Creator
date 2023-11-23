@@ -1,7 +1,5 @@
 @import "./variables";
 
-$navbar_height: 50px;
-
 .navbar {
   position: sticky;
   top: 0;
@@ -52,19 +50,19 @@ $navbar_height: 50px;
 
 .comic__page__sideview {
   height: calc(100vh - $navbar_height);
-  width: 200px;
-  overflow: auto;
+  width: $side_scroller_width;
+  overflow-y: auto;
   border-right: 1px solid #ddd;
+  padding: 10px;
 }
 
 .comic__page__main__canvas {
-  // width: 96%;
-  width: 500px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 10px;
 }
 .comic__page__main__canvas__id {
   position: absolute;
@@ -110,5 +108,21 @@ $navbar_height: 50px;
     bottom: 30px;
     right: 50%;
     transform: translateX(50%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .comic__creator_main_content {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .comic__page__sideview {
+    height: $bottom_scroller_height;
+    flex-shrink: 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: none;
   }
 }
