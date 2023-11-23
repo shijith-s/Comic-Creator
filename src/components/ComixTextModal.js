@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../styles/comicTextModal.css";
-import CloseIcon from "@mui/icons-material/Close";
+import { isTextEmpty } from "../utils/general";
 
-function ComixTextModal({ currPageId, closeModal, currText, generate }) {
+function ComixTextModal({
+  currPageId,
+  closeModal,
+  currText,
+  generate,
+  setAlert,
+}) {
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -15,6 +21,19 @@ function ComixTextModal({ currPageId, closeModal, currText, generate }) {
   };
 
   const submitText = () => {
+    if (isTextEmpty(text)) {
+      setAlert({
+        alert: true,
+        message: "Text is empty. Please enter some content.",
+        severity: "error",
+      });
+      return;
+    }
+    setAlert({
+      alert: true,
+      message: "Generating images. Please wait...",
+      severity: "success",
+    });
     generate(currPageId, text);
     closeModal();
   };

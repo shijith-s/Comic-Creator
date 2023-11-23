@@ -17,16 +17,15 @@ const BASE_STRUCTURE = {
   image: null,
 };
 
-const exportInfo = {
-  success: "Your comic strip has been exported",
-  error: "Please create some images to export into PDF",
-};
-
 function Creator() {
   const [pages, setPages] = useState([]);
   const [currPageId, setCurrPageId] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [exportState, setExportState] = useState(null);
+  const [alert, setAlert] = useState({
+    alert: false,
+    message: "",
+    severity: "",
+  });
 
   useEffect(() => {
     if (pages.length === 0) {
@@ -41,7 +40,16 @@ function Creator() {
     setLoader(pageId, true);
     setText(pageId, text);
     let image = await generateImage(text);
-    setImage(pageId, image);
+    if (!image) {
+      setAlert({
+        alert: true,
+        message:
+          "Oops! Something went wrong while creating images. Please try again.",
+        severity: "error",
+      });
+    } else {
+      setImage(pageId, image);
+    }
     setLoader(pageId, false);
   };
 
@@ -109,15 +117,31 @@ function Creator() {
       .filter((item) => item.is_created)
       .map((item) => item.image);
     if (generatePDF(images)) {
-      setExportState("success");
+      setAlert({
+        alert: true,
+        message: "Export successful! Your comic strip is ready.",
+        severity: "success",
+      });
     } else {
-      setExportState("error");
+      setAlert({
+        alert: true,
+        message: "No content to export. Create some content before exporting.",
+        severity: "error",
+      });
     }
+  };
+
+  const closeAlert = () => {
+    setAlert({
+      alert: false,
+      message: "",
+      severity: "",
+    });
   };
 
   return (
     <div className="comic__creator">
-      <NavBar handleExport={handleExport} />
+      <NavBar handleExport={handleExport} setAlert={setAlert} />
       <div className="comic__creator_main_content">
         <div className="comic__page__sideview">
           <ComicList
@@ -146,13 +170,14 @@ function Creator() {
           currPageId={currPageId}
           closeModal={closeModal}
           generate={generate}
+          setAlert={setAlert}
         />
       )}
       <CustomAlert
-        open={exportState}
-        message={exportInfo[exportState] || ""}
-        severity={exportState || ""}
-        handleClose={() => setExportState(null)}
+        open={alert.alert}
+        message={alert.message}
+        severity={alert.severity}
+        handleClose={closeAlert}
       />
     </div>
   );
