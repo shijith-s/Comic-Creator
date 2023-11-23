@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 
 export const generatePDF = (images) => {
-  if (!images?.length) return;
+  if (!images?.length) return false;
   const pdf = new jsPDF({
     orientation: "landscape",
     unit: "in",
@@ -27,9 +27,9 @@ export const generatePDF = (images) => {
     if (index !== 0) {
       pdf.addPage(); // Add a new page for each subsequent image
     }
-    
+
     pdf.addImage(image, "JPEG", xPos, yPos, imageWidth, imageHeight);
-    
+
     // Add page number to the bottom-right corner
     const pageNumberText = `Page ${index + 1}`;
     pdf.setFontSize(fontSize);
@@ -44,4 +44,5 @@ export const generatePDF = (images) => {
 
   // Save the PDF
   pdf.save("comic_strip.pdf");
+  return true;
 };

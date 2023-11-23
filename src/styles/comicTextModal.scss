@@ -10,22 +10,54 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px 15px;
   border-radius: $borderRadius;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  gap: 20px;
   box-shadow: $modalShadow;
   z-index: 100;
+  overflow: hidden;
+}
+.comic__text__modal__title {
+  height: 40px;
+  background-color: $accent_clr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.comic__text__modal_close_btn {
-  @include button;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.comic__text__modal__content {
+  flex: 1;
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 10px;
+}
+.comic__text__modal__description {
+  text-align: center;
+  font-size: 12px;
+  padding: 20px;
+}
+
+.comic__text__modal__btns {
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  align-items: center;
+  padding: 10px;
+  justify-content: flex-end;
+  & > button {
+    @include button;
+    @include styled_button;
+  }
+
+  & > button:nth-child(1) {
+    @include styled_button($bg_grey, black);
+  }
 }
 
 .comic__text__modal__textarea {
@@ -35,18 +67,4 @@
   border: none;
   resize: none;
   padding: 10px;
-}
-
-.comic__text__modal__btn {
-  & > button {
-    @include button;
-    float: right;
-    background-color: $create_btn;
-    color: $primary_text_clr;
-    align-self: flex-end;
-    &:hover {
-      background-color: $primary_text_clr;
-      color: $create_btn;
-    }
-  }
 }

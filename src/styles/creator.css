@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: #3a4c7f;
+  background-color: #2e3c8b;
   color: white;
 }
 
@@ -45,13 +45,15 @@
   padding: 5px 15px;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #ffd700;
+  background-color: #ec1a60;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  color: #333333;
+  color: #fff;
+  display: flex;
+  align-items: center;
 }
 .navbar__export__btn:hover {
-  background-color: #333333;
-  color: #ffd700;
+  background-color: #fff;
+  color: #ec1a60;
 }
 
 .comic__creator {
@@ -107,41 +109,15 @@
   right: 40px;
   height: 50px;
   width: 50px;
-  background-color: #ffd700;
+  background-color: #ec1a60;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  color: #333333;
+  color: #fff;
 }
 .comic__creator__generate__btn:hover {
-  background-color: #333333;
-  color: #ffd700;
+  background-color: #fff;
+  color: #ec1a60;
 }
 
-.comic__creator__nav__btns {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.comic__creator__nav__btns > button {
-  border: none;
-  border-radius: 50%;
-  background-color: #ffd700;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .comic__creator__nav__btns {
-    flex-direction: row;
-    bottom: 30px;
-    right: 50%;
-    transform: translateX(50%);
-  }
-}
 @media only screen and (max-width: 768px) {
   .comic__creator_main_content {
     flex-direction: column-reverse;

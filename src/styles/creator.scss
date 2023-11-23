@@ -44,6 +44,8 @@
 .navbar__export__btn {
   @include button;
   @include styled_button;
+  display: flex;
+  align-items: center;
 }
 
 .comic__creator {
@@ -95,34 +97,6 @@
   height: 50px;
   width: 50px;
   @include styled_button;
-}
-
-.comic__creator__nav__btns {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  & > button {
-    // @include button(10px 50%);
-    border: none;
-    border-radius: 50%;
-    background-color: $nav_btns;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .comic__creator__nav__btns {
-    flex-direction: row;
-    bottom: 30px;
-    right: 50%;
-    transform: translateX(50%);
-  }
 }
 
 @media only screen and (max-width: 768px) {

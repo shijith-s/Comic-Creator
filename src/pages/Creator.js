@@ -4,11 +4,10 @@ import ComicPage from "../components/ComicPage";
 import "../styles/creator.css";
 import ComixTextModal from "../components/ComixTextModal";
 import { generateImage } from "../services/comics";
-// import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import EditIcon from "@mui/icons-material/Edit";
 import ComicList from "../components/ComicList";
 import { generatePDF } from "../utils/pdfGenerator";
+import CustomAlert from "../components/CustomAlert";
 
 const INITIAL_SIZE = 10;
 const BASE_STRUCTURE = {
@@ -18,10 +17,16 @@ const BASE_STRUCTURE = {
   image: null,
 };
 
+const exportInfo = {
+  success: "Your comic strip has been exported",
+  error: "Please create some images to export into PDF",
+};
+
 function Creator() {
   const [pages, setPages] = useState([]);
   const [currPageId, setCurrPageId] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [exportState, setExportState] = useState(null);
 
   useEffect(() => {
     if (pages.length === 0) {
@@ -84,18 +89,6 @@ function Creator() {
     );
   };
 
-  const goToNextPage = () => {
-    // Handle movement to next page
-    if (currPageId === pages.length - 1) return;
-    setCurrPageId((page) => page + 1);
-  };
-
-  const goToPrevPage = () => {
-    // handles movement to prev page
-    if (currPageId === 0) return;
-    setCurrPageId((page) => page - 1);
-  };
-
   const switchPage = (pageId) => {
     if (pageId < 0 || pageId >= pages.length) return;
     setCurrPageId(pageId);
@@ -115,7 +108,11 @@ function Creator() {
     let images = pages
       .filter((item) => item.is_created)
       .map((item) => item.image);
-    generatePDF(images);
+    if (generatePDF(images)) {
+      setExportState("success");
+    } else {
+      setExportState("error");
+    }
   };
 
   return (
@@ -151,17 +148,12 @@ function Creator() {
           generate={generate}
         />
       )}
-      {/* <div className="comic__creator__nav__btns">
-        <button onClick={goToPrevPage} disabled={currPageId === 0}>
-          <ArrowDropUpIcon />
-        </button>
-        <button
-          onClick={goToNextPage}
-          disabled={currPageId === pages.length - 1}
-        >
-          <ArrowDropDownIcon />
-        </button>
-      </div> */}
+      <CustomAlert
+        open={exportState}
+        message={exportInfo[exportState] || ""}
+        severity={exportState || ""}
+        handleClose={() => setExportState(null)}
+      />
     </div>
   );
 }

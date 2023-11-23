@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/creator.css";
 import logo from "../assets/dashtoon_logo.png";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
 
 function NavBar({ handleExport }) {
   return (
@@ -15,7 +16,8 @@ function NavBar({ handleExport }) {
 
         <div className="navbar__content__right">
           <button className="navbar__export__btn" onClick={handleExport}>
-            Export
+            Export&nbsp;
+            <FileUploadIcon />
           </button>
         </div>
       </div>

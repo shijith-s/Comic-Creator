@@ -3,11 +3,10 @@ $paperShadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
   rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 $modalShadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
-$primary_clr: #3a4c7f;
-$primary_text_clr: #333333;
+$primary_clr: #2e3c8b;
+$primary_text_clr: #fff;
 $bg_grey: #f0f0f0;
-$create_btn: #ffd700;
-$nav_btns: #ffd700;
+$accent_clr: #ec1a60;
 $slide_bg: #fff;
 
 $navbar_height: 50px;
@@ -21,12 +20,12 @@ $side_scroller_width: 200px;
   cursor: pointer;
 }
 
-@mixin styled_button() {
-  background-color: $create_btn;
+@mixin styled_button($prim: $accent_clr, $sec: $primary_text_clr) {
+  background-color: $prim;
   box-shadow: $modalShadow;
-  color: $primary_text_clr;
+  color: $sec;
   &:hover {
-    background-color: $primary_text_clr;
-    color: $create_btn;
+    background-color: $sec;
+    color: $prim;
   }
 }

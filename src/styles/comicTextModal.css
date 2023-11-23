@@ -1,5 +1,5 @@
 .comic__text__modal {
-  background-color: #3a4c7f;
+  background-color: #2e3c8b;
   color: white;
   width: 400px;
   min-height: 300px;
@@ -8,25 +8,70 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px 15px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  gap: 20px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   z-index: 100;
+  overflow: hidden;
 }
 
-.comic__text__modal_close_btn {
+.comic__text__modal__title {
+  height: 40px;
+  background-color: #ec1a60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comic__text__modal__content {
+  flex: 1;
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.comic__text__modal__description {
+  text-align: center;
+  font-size: 12px;
+  padding: 20px;
+}
+
+.comic__text__modal__btns {
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  align-items: center;
+  padding: 10px;
+  justify-content: flex-end;
+}
+.comic__text__modal__btns > button {
   border: none;
   padding: 5px 15px;
   border-radius: 8px;
   cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  background-color: #ec1a60;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  color: #fff;
+}
+.comic__text__modal__btns > button:hover {
+  background-color: #fff;
+  color: #ec1a60;
+}
+.comic__text__modal__btns > button:nth-child(1) {
+  background-color: #f0f0f0;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  color: black;
+}
+.comic__text__modal__btns > button:nth-child(1):hover {
+  background-color: black;
+  color: #f0f0f0;
 }
 
 .comic__text__modal__textarea {
@@ -36,19 +81,4 @@
   border: none;
   resize: none;
   padding: 10px;
-}
-
-.comic__text__modal__btn > button {
-  border: none;
-  padding: 5px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  float: right;
-  background-color: #ffd700;
-  color: #333333;
-  align-self: flex-end;
-}
-.comic__text__modal__btn > button:hover {
-  background-color: #333333;
-  color: #ffd700;
 }/*# sourceMappingURL=comicTextModal.css.map */

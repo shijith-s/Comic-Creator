@@ -21,17 +21,26 @@ function ComixTextModal({ currPageId, closeModal, currText, generate }) {
 
   return (
     <div className="comic__text__modal">
-      <div className="comic__text__modal_close_btn" onClick={closeModal}>
-        <CloseIcon />
+      <div className="comic__text__modal__title">
+        <h3>Imagination Station</h3>
       </div>
-      <h3>Let your creativity Flow</h3>
-      <textarea
-        className="comic__text__modal__textarea"
-        value={text}
-        onChange={handleChange}
-        
-      />
-      <div className="comic__text__modal__btn">
+      <div className="comic__text__modal__content">
+        <div className="comic__text__modal__description">
+          <p>
+            Craft a mini-story for this image. Your words will fuel AI
+            creativity. Go on, paint with brevity!
+          </p>
+        </div>
+
+        <textarea
+          className="comic__text__modal__textarea"
+          value={text}
+          onChange={handleChange}
+          placeholder="Compose your vibrant tale..."
+        />
+      </div>
+      <div className="comic__text__modal__btns">
+        <button onClick={closeModal}>Cancel</button>
         <button onClick={submitText}>Generate</button>
       </div>
     </div>
