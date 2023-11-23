@@ -165,14 +165,14 @@ function Creator() {
         </div>
       </div>
 
-      {isModalOpen && (
-        <ComixTextModal
-          currPageId={currPageId}
-          closeModal={closeModal}
-          generate={generate}
-          setAlert={setAlert}
-        />
-      )}
+      <ComixTextModal
+        open={isModalOpen}
+        currPageId={currPageId}
+        closeModal={closeModal}
+        generate={generate}
+        setAlert={setAlert}
+        currText={pages[currPageId]?.text}
+      />
       <CustomAlert
         open={alert.alert}
         message={alert.message}

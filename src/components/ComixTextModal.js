@@ -3,6 +3,7 @@ import "../styles/comicTextModal.css";
 import { isTextEmpty } from "../utils/general";
 
 function ComixTextModal({
+  open,
   currPageId,
   closeModal,
   currText,
@@ -13,7 +14,7 @@ function ComixTextModal({
 
   useEffect(() => {
     setText(currText);
-  }, [currText]);
+  }, [open, currText]);
 
   const handleChange = (e) => {
     let txt = e.target.value;
@@ -37,7 +38,7 @@ function ComixTextModal({
     generate(currPageId, text);
     closeModal();
   };
-
+  if (!open) return;
   return (
     <div className="comic__text__modal">
       <div className="comic__text__modal__title">
