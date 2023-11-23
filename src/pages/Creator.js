@@ -8,6 +8,7 @@ import { generateImage } from "../services/comics";
 // import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import EditIcon from "@mui/icons-material/Edit";
 import ComicList from "../components/ComicList";
+import { generatePDF } from "../utils/pdfGenerator";
 
 const INITIAL_SIZE = 10;
 const BASE_STRUCTURE = {
@@ -110,9 +111,16 @@ function Creator() {
     setIsModalOpen(false);
   };
 
+  const handleExport = () => {
+    let images = pages
+      .filter((item) => item.is_created)
+      .map((item) => item.image);
+    generatePDF(images);
+  };
+
   return (
     <div className="comic__creator">
-      <NavBar />
+      <NavBar handleExport={handleExport} />
       <div className="comic__creator_main_content">
         <div className="comic__page__sideview">
           <ComicList

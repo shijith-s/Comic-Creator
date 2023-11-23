@@ -20,3 +20,13 @@ $side_scroller_width: 200px;
   border-radius: $br;
   cursor: pointer;
 }
+
+@mixin styled_button() {
+  background-color: $create_btn;
+  box-shadow: $modalShadow;
+  color: $primary_text_clr;
+  &:hover {
+    background-color: $primary_text_clr;
+    color: $create_btn;
+  }
+}
