@@ -57,7 +57,7 @@
 }
 
 .comic__creator {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow: hidden;
   display: flex;
