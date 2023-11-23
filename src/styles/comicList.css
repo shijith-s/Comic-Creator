@@ -20,6 +20,8 @@
   right: 10px;
   padding: 1px 5px;
   border-radius: 8px;
+  font-size: 12px;
+  color: #333;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -30,5 +32,9 @@
 @media only screen and (max-width: 768px) {
   .comic__page__list {
     flex-direction: row;
+  }
+  .comic__page__list__item__id {
+    right: 50%;
+    transform: translateX(50%);
   }
 }/*# sourceMappingURL=comicList.css.map */

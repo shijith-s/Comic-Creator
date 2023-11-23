@@ -93,6 +93,8 @@
   position: absolute;
   top: 10px;
   left: 10px;
+  color: #999;
+  font-size: 14px;
 }
 
 .comic__creator__generate__btn {
@@ -103,6 +105,8 @@
   position: absolute;
   bottom: 30px;
   right: 40px;
+  height: 50px;
+  width: 50px;
   background-color: #ffd700;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   color: #333333;

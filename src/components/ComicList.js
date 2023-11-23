@@ -13,7 +13,7 @@ function ComicList({ pages, currPageId, switchPage }) {
           onClick={() => switchPage(idx)}
         >
           <ComicPage key={idx} page={page} />
-          <div className="comic__page__list__item__id">Page {idx + 1}</div>
+          <div className="comic__page__list__item__id">Page&nbsp;{idx + 1}</div>
         </div>
       ))}
     </div>

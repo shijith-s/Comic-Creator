@@ -131,7 +131,7 @@ function Creator() {
         </div>
         <div className="comic__page__main__canvas">
           <div className="comic__page__main__canvas__id">
-            Page {currPageId + 1}
+            Page&nbsp;{currPageId + 1}
           </div>
           <ComicPage
             page={pages[currPageId]}
